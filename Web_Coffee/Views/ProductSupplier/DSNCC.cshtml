@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Web_Coffee.Models.NhaCungCap>
+@{
+    ViewBag.Title = "DSKhachHang";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+<h2>Danh Sách Nhân Viên</h2>
+<div class="row mb-3">
+    <div class="col-md-8">
+        @using (Html.BeginForm("DSNCC", "ProductSupplier", FormMethod.Get, new { @class = "form-inline" }))
+        {
+            <div class="input-group">
+                @Html.TextBox("searchString", ViewBag.CurrentFilter as string, new { @class = "form-control", @placeholder = "Tìm kiếm theo tên NCC" })
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-search"></i> Tìm kiếm
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-4 text-right">
+        @Html.ActionLink("Tạo Mới", "Create", null, new { @class = "btn btn-success" })
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.IDNCC)</th>
+            <th>@Html.DisplayNameFor(model => model.TenNCC)</th>
+            <th>@Html.DisplayNameFor(model => model.DiaChiNCC)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.IDNCC)</td>
+                <td>@Html.DisplayFor(modelItem => item.TenNCC)</td>
+                <td>@Html.DisplayFor(modelItem => item.DiaChiNCC)</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.IDNCC }, new { @class = "btn btn-sm btn-primary" })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.IDNCC }, new { @class = "btn btn-sm btn-info" })
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.IDNCC }, new { @class = "btn btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

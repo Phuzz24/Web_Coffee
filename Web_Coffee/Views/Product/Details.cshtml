@@ -1,0 +1,33 @@
+﻿@model Web_Coffee.Models.SanPham
+@{
+    ViewBag.Title = "Chi Tiết Sản phẩm";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+<h2>Chi Tiết Sản phẩm</h2>
+<div class="form-horizontal">
+    <h4>Sản Phẩm</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.IDSanPham)</dt>
+        <dd>@Html.DisplayFor(model => model.IDSanPham)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.CodeSanPham)</dt>
+        <dd>@Html.DisplayFor(model => model.CodeSanPham)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.TenSanPham)</dt>
+        <dd>@Html.DisplayFor(model => model.TenSanPham)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Gia)</dt>
+        <dd>@Html.DisplayFor(model => model.Gia)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Size)</dt>
+        <dd>@Html.DisplayFor(model => model.Size)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Quantity)</dt>
+        <dd>@Html.DisplayFor(model => model.Quantity)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.IDSanPham }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Quay về", "DSSanPham", null, new { @class = "btn btn-secondary" })
+</p>

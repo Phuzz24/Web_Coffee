@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Share/_LoginLayout.cshtml";
+}
+
+<main class="container">
+    <div id="form-register">
+        <div class="form-name">
+            <h1>Đăng kí tài khoản</h1>
+        </div>
+
+        <div class="group-register">
+            <div class="row mb-3">
+                <div class="col-3 register-item">
+                    <label>Tên người dùng: </label>
+                </div>
+
+                <div class="col-9">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="UserName" placeholder="Tên người dùng">
+                        <label for="UserName">Tên người dùng</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3 register-item">
+                    <label>Email: </label>
+                </div>
+
+                <div class="col-9">
+                    <div class="form-floating ">
+                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <label for="Email">Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3 register-item">
+                    <label>Mật khẩu:</label>
+                </div>
+
+                <div class="col-9">
+                    <div class="form-floating ">
+                        <input type="password" class="form-control" id="Password" placeholder="Mật khẩu">
+                        <label for="Password">Mật khẩu</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-3 register-item">
+                    <label>Xác nhận mật khẩu:</label>
+                </div>
+
+                <div class="col-9">
+                    <div class="form-floating ">
+                        <input type="password" class="form-control" id="CheckPassword" placeholder="Xác nhận mật khẩu">
+                        <label for="CheckPassword">Xác nhận mật khẩu</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="CheckBox">
+                <label class="form-check-label" for="CheckBox">
+                    Tôi đã đọc và đồng ý với
+                    <a href="/home/dieukhoan_sudung">Điều khoản sử dụng</a> và
+                    <a href="/home/chinhsach_baomat">Chính sách bảo mật</a>.
+                </label>
+            </div>
+
+            <button class="btn-register" type="submit">Đăng ký</button>
+        </div>
+    </div>
+
+    <script>
+        const userNameInput = document.getElementById('UserName');
+        const emailInput = document.getElementById('Email');
+        const passwordInput = document.getElementById('Password');
+        const checkPasswordInput = document.getElementById('CheckPassword');
+        const checkBox = document.getElementById('CheckBox');
+        const registerButton = document.querySelector('.btn-register');
+
+        registerButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            // Ngăn chặn hành vi mặc định của form
+
+            const userName = userNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            const checkPassword = checkPasswordInput.value.trim();
+
+            // Kiểm tra điều kiện
+            if (userName === '') {
+                alert('Vui lòng nhập tên người dùng!');
+                return;
+            }
+
+            if (email === '') {
+                alert('Vui lòng nhập email!');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Email không hợp lệ!');
+                return;
+            }
+
+            if (password === '') {
+                alert('Vui lòng nhập mật khẩu!');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('Mật khẩu phải có ít nhất 8 ký tự!');
+                return;
+            }
+
+
+            if (checkPassword === '') {
+                alert('Vui lòng nhập xác nhận mật khẩu!');
+                return;
+            }
+
+            if (password !== checkPassword) {
+                alert('Mật khẩu và xác nhận mật khẩu không khớp!');
+                return;
+            }
+
+            if (!checkBox.checked) {
+                alert('Vui lòng đồng ý với Điều khoản sử dụng và Chính sách bảo mật!');
+                return;
+            }
+
+            // Tất cả điều kiện đều thỏa mãn, xử lý đăng ký
+            alert('Đăng ký thành công!');
+
+
+            window.location.href = "/account/dangnhap";
+            // Gửi dữ liệu đăng ký lên server (bổ sung code)
+        });
+
+        function isValidEmail(email) {
+            // Kiểm tra định dạng email
+            // Đây là một phương pháp đơn giản, không sử dụng regex
+            const atIndex = email.indexOf("@@");
+            const dotIndex = email.lastIndexOf('.');
+            return atIndex > 0 && dotIndex > atIndex;
+        }
+    </script>
+</main>
+
+

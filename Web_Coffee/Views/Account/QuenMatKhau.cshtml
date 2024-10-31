@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "QuenMatKhau";
+    Layout = "~/Views/Share/_LoginLayout.cshtml";
+}
+
+<main class="container">
+    <div id="form-forget">
+        <div class="form-name">
+            <h1>Quên mật khẩu</h1>
+        </div>
+
+        <p>Nhập địa chỉ email bạn đã đăng ký. Nhấp Gửi để hệ thống gửi mật khẩu tới email.</p>
+        <div class="email-forget">
+            <div class="row">
+                <div class="col-3 position-relative">
+                    <label class="label-email">Nhập Email của bạn: </label>
+                </div>
+
+                <div class="col-9">
+                    <div class="form-floating mb-3" style="margin-top:20px">
+                        <input type="email" class="form-control" id="Email" placeholder="Email">
+                        <label for="Email">Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="checkEmail()" class="btn-new-password">Mật khẩu mới</button>
+        </div>
+    </div>
+
+    <script>
+        function checkEmail() {
+            // Lấy giá trị từ input email và password
+            const email = document.getElementById('Email').value;
+
+            if (email === '') {
+                alert('Vui lòng nhập đúng Email để nhận lại mật khẩu mới.');
+                return;
+            }
+
+            // Kiểm tra định dạng email
+            if (!isValidEmail(email)) {
+                alert('Email không hợp lệ.');
+                return;
+            }
+
+            else {
+                alert('Vui lòng kiểm tra Email để nhận mật khẩu mới.');
+                return;
+            }
+        }
+
+        function isValidEmail(email) {
+            // Kiểm tra định dạng email
+            // Đây là một phương pháp đơn giản, không sử dụng regex
+            const atIndex = email.indexOf("@@");
+            const dotIndex = email.lastIndexOf('.');
+            return atIndex > 0 && dotIndex > atIndex;
+        }
+    </script>
+</main>

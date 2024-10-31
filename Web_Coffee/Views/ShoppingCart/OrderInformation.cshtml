@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Thông Tin Đặt Hàng";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Thông Tin Đặt Hàng</h2>
+
+    @using (Html.BeginForm("CheckOut", "ShoppingCart", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <!-- Mã khách hàng ẩn -->
+        <input type="hidden" name="CodeCustomer" value="@ViewBag.CustomerCode" />
+
+        <div class="form-group row">
+            <label for="CustomerName" class="col-sm-4 col-form-label">Tên người nhận:</label>
+            <div class="col-sm-8">
+                <input type="text" name="CustomerName" id="CustomerName" class="form-control" value="@ViewBag.CustomerName" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="CustomerAddress" class="col-sm-4 col-form-label">Địa chỉ:</label>
+            <div class="col-sm-8">
+                <input type="text" name="CustomerAddress" id="CustomerAddress" class="form-control" value="@ViewBag.CustomerAddress" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="CustomerPhone" class="col-sm-4 col-form-label">Số điện thoại:</label>
+            <div class="col-sm-8">
+                <input type="text" name="CustomerPhone" id="CustomerPhone" class="form-control" value="@ViewBag.CustomerPhone" required />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-8 offset-sm-4">
+                <button type="submit" class="btn btn-success">Thanh toán</button>
+            </div>
+        </div>
+    }
+</div>

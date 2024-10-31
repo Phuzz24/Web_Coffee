@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Web_Coffee.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Chi tiết đơn hàng</h2>
+
+    <div class="mb-3">
+        <h5>Thông tin đơn hàng:</h5>
+        <p><strong>Mã hóa đơn:</strong> @ViewBag.Order.IDHoaDon</p>
+        <p><strong>Ngày bán:</strong> @ViewBag.Order.NgayBan.ToString("dd/MM/yyyy")</p>
+        <p><strong>Tổng tiền:</strong> @string.Format("{0:N0}", ViewBag.Order.TongTien) đ</p>
+        <p><strong>Trạng thái:</strong> @ViewBag.Order.TrangThai</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.CodeSanPham</td>
+                        <td>@string.Format("{0:N0}", item.Gia) đ</td>
+                        <td>@item.SoLuong</td>
+                        <td>@string.Format("{0:N0}", item.Gia * item.SoLuong) đ</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="@Url.Action("OrderHistory", "ShoppingCart", new { codeKhachHang = ViewBag.Order.CodeKhachHang })" class="btn btn-primary">
+        Quay lại lịch sử đơn hàng
+    </a>
+</div>

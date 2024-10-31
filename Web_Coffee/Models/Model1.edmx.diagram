@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9f24b46ebad413a853458b92056477c" Name="Diagram1">
+        <EntityTypeShape EntityType="DBCoffeeModel.Category" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.ChiTietHoaDon" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.Chu" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.HoaDon" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.KhachHang" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.NguoiDung" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.NhaCungCap" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.NhanVien" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.PhieuGiamGia" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBCoffeeModel.SanPham" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <AssociationConnector Association="DBCoffeeModel.FK__SanPham__IDCateg__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__ChiTietHo__IDHoa__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__ChiTietHo__IDSan__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__Chu__IDNguoiDung__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__HoaDon__IDKhachH__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__HoaDon__IDNhanVi__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__PhieuGiam__IDHoa__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__KhachHang__IDNgu__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__NhanVien__IDNguo__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBCoffeeModel.FK__SanPham__IDNCC__32E0915F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

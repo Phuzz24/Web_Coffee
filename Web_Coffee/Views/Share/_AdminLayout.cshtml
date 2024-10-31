@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="~/Image/icon-logo.png" type="image/x-icon" />
+    <title>Boiz Coffee Admin</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/_wed.css" rel="stylesheet" />
+    <link href="~/Content/admin.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+</head>
+<body>
+    <header id="admin-header" class="container-fluid py-2">
+        <nav class="container">
+            <div class="row align-items-center">
+                <div class="col-2 logo">
+                    <a href="/Admin/Dashboard">
+                        <img src="~/Image/logo-cafe.png" alt="Boiz Coffee" class="img-fluid" />
+                    </a>
+                </div>
+                <div class="col-8">
+                    <ul class="nav justify-content-center fw-medium">
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/User/DSNguoiDung">QL Người dùng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/Product/DSSanPham">QL Sản phẩm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/ProductSupplier/DSNCC">QL Nhà cung cấp</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/Order/DSOrder">QL Đơn hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/Customer/DSKhachHang">QL Khách hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/Staff/DSNhanVien">QL Nhân viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/Category/Index">QL Loại SP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" href="/ThongKe/Index">Xem Thống kê</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2 text-end">
+                    @if (Session["UserID"] != null)
+                    {
+                        <span class="nav-link text-black fw-bold">Xin chào, @Session["UserName"] (@Session["UserRole"])</span>
+                        <a class="nav-link text-black" href="/Login/Logout">ĐĂNG XUẤT</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link text-black" href="/Login/Login">ĐĂNG NHẬP</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    @RenderBody()
+
+    <Footer id="footer">
+        <div class="list-footer container row">
+            <div class="col-6 ">
+                <h2>Liên hệ</h2>
+                <div class="contact">
+                    <a href="/">
+                        <img src="~/Image/logo-cafe.png" />
+                    </a>
+                </div>
+
+                <h2>Fanpage</h2>
+                <div class="position-relative mx-auto" style="width:350px">
+                    <img class="rounded d-block mx-auto position-absolute" src="~/Image/bg-facebook.png" style="width:350px; height:140px" />
+                    <div class="position-absolute">
+                        <div class=" d-flex pt-1 ps-1">
+                            <a href="https://vi-vn.facebook.com/"><img src="~/Image/logo-facebook.png" style="width: 50px" /></a>
+                            <a href="https://vi-vn.facebook.com/"><img src="~/Image/facebook.png" style="height: 50px" /></a>
+                        </div>
+                        <div class="fanpage">
+                            <a class="follow-page " href="https://vi-vn.facebook.com/" style="float:left">Theo dõi trang</a>
+                            <a class="share-page " href="https://vi-vn.facebook.com/" style="float:right"><i class="fa-solid fa-share"></i> Chia sẻ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 ">
+                <h2>Điều khoản</h2>
+                <ul class="dieukhoan">
+                    <li class="ps-5"><a class="text-white-50" href="/home/dieukhoan_sudung">Điều khoản sử dụng</a></li>
+                    <li class="ps-5"><a class="text-white-50" href="/home/chinhsach_baomat">Chính sách bảo mật</a></li>
+                </ul>
+                <h2 class="pt-4 pb-2">Giới thiệu</h2>
+                <ul>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-location-dot"></i> 828 Sư Vạn Hạnh, Phường 13, Quận 10, TP.HCM</li>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-phone"></i> 0123 456 789</li>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-envelope"></i> support@st.huflit.edu.vn</li>
+                </ul>
+            </div>
+        </div>
+    </Footer>
+
+
+

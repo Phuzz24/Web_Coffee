@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+
+
+<main>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+                <img src="~/Image/banner1.png" class="d-block w-100">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="~/Image/banner2.png" class="d-block w-100">
+            </div>
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="~/Image/banner3.png" class="d-block w-100">
+            </div>
+        </div>
+    </div>
+
+    <div id="home" class="container">
+        <div class="chungtoi">
+            <h2>Về chúng tôi</h2>
+            <img style="width:100px" src="~/Image/home_symbo.png" />
+            <p>Boiz Coffee được thành lập từ những ngày đầu với sứ mạng đưa cà phê từ Nông Trại đến Bàn cho tách cà phê sạch và đáng tin nhất. Chúng tôi luôn muốn hoàn thiện điều đó bằng tất cả niềm đam mê của mình.</p>
+        </div>
+
+        <div class="row banner">
+            <div class="col-6 ">
+                <div class="banner-wrapper ">
+                    <img src="~/Image/cafe.png" />
+                    <div class="footer-banner">
+                        <span>Cafe rang say</span>
+                    </div>
+                    <div class="banner-mask animated PourDown">
+                        <div class="banner-content">
+                            <span>
+                                <P style="margin-bottom:70px">
+                                    Xu hướng thưởng thức cà phê nguyên chất, sạch hiện nay là rất lớn. Bạn muốn quán của mình phục vụ cà phê nguyên chất và cao cấp?
+                                    <br />
+                                    Liên hệ để có giá tốt nhất và độ rang phù hợp.
+                                </P>
+                            </span>
+                            <a class="btn-box" href="#">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="banner-wrapper animated PourDown">
+                    <img src="~/Image/tea.png" />
+                    <div class="footer-banner ">
+                        <span>Trà thảo mộc</span>
+                    </div>
+                    <div class="banner-mask">
+                        <div class="banner-content">
+                            <span>
+                                <p style="margin-bottom:70px">
+                                    Xu hướng thưởng thức cà phê nguyên chất, sạch hiện nay là rất lớn. Bạn muốn quán của mình phục vụ cà phê nguyên chất và cao cấp?
+                                    <br />
+                                    Liên hệ để có giá tốt nhất và độ rang phù hợp.
+                                </p>
+                            </span>
+                            <a class="btn-box" href="#">Chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row p-5">
+                <div class="col-4">
+                    <div class="home-item text-center">
+                        <a href="#">
+                            <div class="item-img" style="padding-bottom: 5px;">
+                                <img src="~/Image/home-espresso.png" />
+                            </div>
+                            <h3>Cafe pha máy</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-4 ">
+                    <div class="home-item text-center">
+                        <a href="#">
+                            <div class="item-img">
+                                <img src="~/Image/home-phin.png" style="width:185px" />
+                            </div>
+                            <h3>Cafe pha phin</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="home-item text-center">
+                        <a href="#">
+                            <div class="item-img" style="padding-bottom: 8px;">
+                                <img src="~/Image/home-tea.png" />
+                            </div>
+                            <h3>Trà nguyên chất</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

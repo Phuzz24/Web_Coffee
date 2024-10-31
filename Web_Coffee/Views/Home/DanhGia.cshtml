@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "DanhGia";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+    }
+
+    .menu-bar {
+        background-color: #4a2c2a;
+        padding: 10px 0;
+    }
+
+        .menu-bar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0 20px;
+        }
+
+            .menu-bar ul li {
+                display: inline;
+                margin-right: 20px;
+            }
+
+                .menu-bar ul li a {
+                    color: white;
+                    text-decoration: none;
+                }
+
+    .content {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #4a2c2a;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    form {
+        background-color: #f2e6d9;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    label {
+        display: block;
+        margin-top: 15px;
+        color: #4a2c2a;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="email"], select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .danhgia {
+        background-color: #6f4e37;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+        + width: 100%;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #5a3d2b;
+    }
+</style>
+<div class="content">
+    <h1>Đánh giá Cửa hàng Cà phê</h1>
+    <form>
+        <label for="name">Họ và tên:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="rating">Đánh giá:</label>
+        <select id="rating" name="rating" required>
+            <option value="">Chọn đánh giá</option>
+            <option value="5">5 sao - Xuất sắc</option>
+            <option value="4">4 sao - Rất tốt</option>
+            <option value="3">3 sao - Tốt</option>
+            <option value="2">2 sao - Bình thường</option>
+            <option value="1">1 sao - Kém</option>
+        </select>
+
+        <label for="product">Sản phẩm đã mua:</label>
+        <input type="text" id="product" name="product" required>
+
+        <label for="comment">Nhận xét:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea>
+
+        <a href="/Home/DanhGiaThanhCong" class="danhgia">Gửi đánh giá</a>
+    </form>
+</div>

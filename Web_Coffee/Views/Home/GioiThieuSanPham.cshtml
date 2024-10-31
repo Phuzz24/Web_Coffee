@@ -1,0 +1,450 @@
+﻿
+@{
+    ViewBag.Title = "GioiThieuSanPham";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+
+
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="Image/icon-logo.png" type="image/x-icon" />
+    <title>Boiz Coffee</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/_wed.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <link href="Content/TEST.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        hr {
+            margin: 0;
+        }
+
+        .bg-cafe img {
+            width: 100%;
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px 0;
+            background-color: white;
+        }
+
+            .section .item {
+                width: 30%;
+                margin: 1%;
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+                .section .item img {
+                    width: 100%;
+                    display: block;
+                    transition: transform 0.3s ease;
+                }
+
+                .section .item:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                }
+
+                    .section .item:hover img {
+                        transform: scale(1.1);
+                    }
+
+                .section .item .content {
+                    text-align: center;
+                    padding: 20px 0;
+                    background-color: #f8f8f8;
+                    transition: background-color 0.3s ease;
+                }
+
+                .section .item:hover .content {
+                    background-color: #fd6133;
+                    color: white;
+                }
+
+                .section .item .content h2 {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                }
+
+                .section .item .content p {
+                    font-size: 16px;
+                    color: dimgrey;
+                }
+
+                .section .item .content a {
+                    display: inline-block;
+                    margin-top: 10px;
+                    padding: 10px 20px;
+                    color: white;
+                    background-color: #fd6133;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }
+
+                .section .item:hover .content a {
+                    background-color: white;
+                    color: #fd6133;
+                }
+
+                /* Add hover effect for the entire section items */
+                .section .item:hover::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0,0,0,0.1);
+                    z-index: 1;
+                }
+
+        /***************************************************CONTACT SECTION*************************************************/
+        .btn-contact h1 {
+            font-size: 35px;
+            color: black;
+            font-weight: 500;
+        }
+
+        .btn-contact a {
+            font-size: 23px;
+            border: 3px solid #fd6133;
+            padding: 10px 25px;
+            color: #fd6133;
+            font-weight: 500;
+            display: inline-block;
+            margin: 20px 0px;
+            position: relative;
+        }
+
+            .btn-contact a:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+                height: 100%;
+                width: 0;
+                background-color: #fd6133;
+                z-index: -1;
+                transition: width .15s linear;
+            }
+
+            .btn-contact a:hover:before {
+                width: 101%;
+            }
+
+            .btn-contact a:hover {
+                color: white;
+                transition: color .15s linear;
+            }
+
+        /***************************************************FOOTER*************************************************/
+        #footer {
+            font-size: 16px;
+            background-color: black;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .list-footer {
+            padding: 50px 100px;
+            border-bottom: 2px solid white;
+            margin: auto;
+        }
+
+            .list-footer h2 {
+                color: #fd6133;
+                font-size: 25px;
+                text-align: center;
+            }
+
+            .list-footer li {
+                font-size: 18px;
+            }
+
+            .list-footer .dieukhoan li:hover {
+                text-decoration: underline;
+                color: darkgrey;
+            }
+
+            .list-footer .fanpage {
+                width: 350px;
+                transform: translateY(55px);
+                padding: 0 5px;
+            }
+
+            .list-footer .follow-page, .share-page {
+                font-size: 12px;
+                color: black;
+                background-color: lightgray;
+                padding: 3px;
+                border: 1px solid black;
+                max-width: 150px;
+            }
+
+                .list-footer .follow-page:hover,
+                .list-footer .share-page:hover {
+                    text-decoration: underline;
+                    transition: all 0.2s linear;
+                }
+
+        .contact {
+            position: relative;
+            height: 90px;
+        }
+
+            .contact img {
+                width: 350px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+        /***************************************************ZALO*************************************************/
+        #zalo {
+            position: fixed;
+            right: 50px;
+            bottom: 75px;
+            z-index: 2;
+        }
+
+            #zalo img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                animation: Spread 1s linear infinite;
+            }
+
+        @keyframes Spread {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 255, .7), 0 0 0 0 rgba(0, 0, 255, .7);
+            }
+
+            40% {
+                box-shadow: 0 0 0 10px rgba(0, 0, 255, 0), 0 0 0 0 rgba(0, 0, 255, .7);
+            }
+
+            80% {
+                box-shadow: 0 0 0 10px rgba(0, 0, 255, 0.4), 0 0 0 10px rgba(0, 0, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 255, 0), 0 0 0 10px rgba(0, 0, 255, 0);
+            }
+        }
+
+        /***************************************************BACK-TO-TOP*************************************************/
+        #scroll-top {
+            position: fixed;
+            right: 50px;
+            bottom: 150px;
+            z-index: 2;
+            cursor: pointer;
+            display: none;
+        }
+
+            #scroll-top img {
+                width: 50px;
+                height: 50px;
+                transform: translate(0, 10%);
+                animation: Scroll 1s linear infinite;
+            }
+
+        @keyframes Scroll {
+            to {
+                transform: translate(0, -10%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <Header id="header" class="container py-2">
+        <nav class="container-fluid ">
+            <div class="row">
+                <div class="col-2 position-relative">
+                    <a class="icon-cart" href="#">
+                        <i class="fa-brands fa-opencart text-black fs-4"></i>
+                        <div class="cart-number">0</div>
+                    </a>
+                </div>
+
+
+                <div class="col-8 px-3 ">
+                    <div class="row">
+                        <div class="col-5 d-flex justify-content-evenly align-items-center">
+                            <ul class="nav fw-medium">
+                                <li class="nav-item ">
+                                    <a class="nav-link text-black" href="/home/gioithieu_nguongoc">GIỚI THIỆU</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link text-black" href="ProductClient/Index">SẢN PHẨM</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-2 px-0 logo">
+                            <a href="/">
+                                <img src="Image/logo-cafe.png" />
+                            </a>
+                        </div>
+
+                        <div class="col-5 d-flex justify-content-evenly align-items-center">
+                            <ul class="nav fw-medium">
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" href="#">DỊCH VỤ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-black" href="/home/tintuc">TIN TỨC</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2 position-relative login">
+                    <a class=" fw-medium text-black position-absolute top-50 end-0 translate-middle-y" href="/Login/Login">ĐĂNG NHẬP</a>
+                </div>
+            </div>
+        </nav>
+    </Header>
+    <hr />
+
+    <section class="section">
+        <div class="item item-cafe">
+            <img src="Image/cà phê.jpg" alt="Cafe">
+            <div class="content">
+                <h2>CÀ PHÊ</h2>
+                <p>Sự kết hợp hoàn hảo giữa hạt cà phê Robusta & Arabica thượng hạng được trồng trên những vùng cao nguyên Việt Nam màu mỡ, qua những bí quyết rang xay độc đáo, Highlands Coffee chúng tôi tự hào giới thiệu những dòng sản phẩm Cà phê mang hương vị đậm đà và tinh tế.</p>
+                <a href="#">KHÁM PHÁ THÊM</a>
+            </div>
+        </div>
+        <div class="item item-freeze">
+            <img src="Image/freeze.jpg" alt="Freeze">
+            <div class="content">
+                <h2>FREEZE</h2>
+                <p>Sảng khoái với thức uống đá xay phong cách Việt. Freeze là thức uống đá xay mát lạnh được pha chế từ những nguyên liệu thuần túy của Việt Nam.</p>
+                <a href="#">KHÁM PHÁ THÊM</a>
+            </div>
+        </div>
+        <div class="item item-tra">
+            <img src="Image/trà.jpg" alt="Trà">
+            <div class="content">
+                <h2>TRÀ</h2>
+                <p>Hương vị tự nhiên, thơm ngon của Trà Việt với phong cách hiện đại tại Highlands Coffee sẽ giúp bạn gợi mở vị giác của bản thân và tận hưởng một cảm giác thật khoan khoái, tươi mới.</p>
+                <a href="#">KHÁM PHÁ THÊM</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="btn-contact text-center py-5">
+            <h1>Bạn đang quan tâm gì?</h1>
+            <a class="py-3" href="#">Liên hệ chúng tôi</a>
+        </div>
+    </section>
+
+    <Footer id="footer">
+        <div class="list-footer container row">
+            <div class="col-6 ">
+                <h2>Liên hệ</h2>
+                <div class="contact">
+                    <a href="/">
+                        <img src="Image/logo-cafe.png" />
+                    </a>
+                </div>
+
+                <h2>Fanpage</h2>
+                <div class="position-relative mx-auto" style="width:350px">
+                    <img class="rounded d-block mx-auto position-absolute" src="Image/bg-facebook.png" style="width:350px; height:140px" />
+                    <div class="position-absolute">
+                        <div class=" d-flex pt-1 ps-1">
+                            <a href="https://vi-vn.facebook.com/"><img src="Image/logo-facebook.png" style="width: 50px" /></a>
+                            <a href="https://vi-vn.facebook.com/"><img src="Image/facebook.png" style="height: 50px" /></a>
+                        </div>
+                        <div class="fanpage">
+                            <a class="follow-page " href="https://vi-vn.facebook.com/" style="float:left">Theo dõi trang</a>
+                            <a class="share-page " href="https://vi-vn.facebook.com/" style="float:right"><i class="fa-solid fa-share"></i> Chia sẻ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 ">
+                <h2>Điều khoản</h2>
+                <ul class="dieukhoan">
+                    <li class="ps-5"><a class="text-white-50" href="/home/dieukhoan_sudung">Điều khoản sử dụng</a></li>
+                    <li class="ps-5"><a class="text-white-50" href="/home/chinhsach_baomat">Chính sách bảo mật</a></li>
+                </ul>
+                <h2 class="pt-4 pb-2">Giới thiệu</h2>
+                <ul>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-location-dot"></i> 828 Sư Vạn Hạnh, Phường 13, Quận 10, TP.HCM</li>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-phone"></i> 0123 456 789</li>
+                    <li class="text-white-50 ps-5"><i class="fa-solid fa-envelope"></i> support@st.huflit.edu.vn</li>
+                </ul>
+            </div>
+        </div>
+    </Footer>
+
+    <div id="zalo">
+        <a href="https://id.zalo.me/account?continue=https://chat.zalo.me">
+            <img src="Image/zalo.png" />
+        </a>
+    </div>
+
+    <div id="scroll-top">
+        <a href="#"><img src="Image/icon-arrow.png" /></a>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 350) {
+                document.getElementById('scroll-top').style.display = 'block';
+            }
+            else {
+                document.getElementById('scroll-top').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

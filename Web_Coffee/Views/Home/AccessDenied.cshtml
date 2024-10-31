@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="mb-0"><i class="fas fa-ban mr-2"></i>Truy cập bị cấm</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Bạn không có quyền truy cập vào trang này.</p>
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">
+                        <i class="fas fa-home mr-2"></i>Quay lại trang chủ
+                    </a>
+                </div>
+                <div class="card-footer text-muted">
+                    Trang này chỉ dành cho quản trị viên, bạn không có quyền truy cập.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

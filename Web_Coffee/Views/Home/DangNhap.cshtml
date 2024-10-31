@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Share/_LoginLayout.cshtml";
+}
+
+<main class="container">
+    <div id="form-login">
+        <h1>Đăng nhập tài khoản</h1>
+        <div class="row">
+            <div class="col-6">
+                <h2>BẠN CHƯA CÓ TÀI KHOẢN?</h2>
+                <strong>ĐĂNG KÝ</strong>
+                <p>Bằng việc tạo tài khoản bạn có thể mua sắm nhanh hơn, theo dõi trạng thái đơn hàng, và theo dõi đơn hàng mà bạn đã đặt.</p>
+                <a class="continue" href="/Account/DangKy">Tiếp tục</a>
+            </div>
+
+            <div class="col-6">
+                <h2>Khách hàng cũ</h2>
+                <strong>Tôi đã có tài khoản</strong>
+                <div class="form-floating mb-3" style="margin-top:20px">
+                    <input type="email" class="form-control" id="Email" placeholder="Email">
+                    <label for="Email">Email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                    <label for="Password">Password</label>
+                </div>
+                <a class="forget" href="/Account/QuenMatKhau">Quên mật khẩu?</a><br />
+                <button onclick="checkLogin()" class="btn-login" style="margin-top:20px">Đăng nhập</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            // Lấy giá trị từ input email và password
+            const email = document.getElementById('Email').value;
+            const password = document.getElementById('Password').value;
+
+            if (password.length < 8) {
+                alert('Mật khẩu phải có ít nhất 8 ký tự.');
+                return;
+            }
+
+            // Kiểm tra định dạng email
+            if (!isValidEmail(email)) {
+                alert('Email không hợp lệ. Xin vui lòng điền đúng thông tin');
+                return;
+            }
+
+            // Nếu không có lỗi, hiển thị thông báo đăng nhập thành công
+            alert('Đăng nhập thành công!');
+        }
+
+        function isValidEmail(email) {
+            // Kiểm tra định dạng email
+            // Đây là một phương pháp đơn giản, không sử dụng regex
+            const atIndex = email.indexOf("a");
+            const dotIndex = email.lastIndexOf('.');
+            return atIndex > 0 && dotIndex > atIndex;
+        }
+    </script>
+
+</main>
+

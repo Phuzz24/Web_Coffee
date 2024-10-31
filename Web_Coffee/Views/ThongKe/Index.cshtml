@@ -1,0 +1,101 @@
+﻿@model Web_Coffee.Models.Web_Coffee.Models.ThongKeView
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+
+<div class="statistics-container">
+    <div class="stat-item">
+        <h3>Số Lượng Khách Hàng</h3>
+        <p>@Model.TongSLKhachHang</p>
+    </div>
+
+    <div class="stat-item">
+        <h3>Tổng Doanh Thu</h3>
+        <p>@Model.TongDoanhThu.ToString("C")</p>
+    </div>
+
+    <div class="stat-item">
+        <h3>Đồ Uống Được Mua</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tên Đồ Uống</th>
+                    <th>Số Lượng Bán</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var drink in Model.DSMonNuocDuocMua)
+                {
+                    <tr>
+                        <td>@drink.TenSanPham</td>
+                        <td>@drink.SoLuongBan</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="stat-item">
+        <h3>Đồ Uống Được Mua Nhiều Nhất</h3>
+        @if (Model.DSNuocDuocMuaNhieuNhat != null)
+        {
+            <p>@Model.DSNuocDuocMuaNhieuNhat.TenSanPham</p>
+        }
+        else
+        {
+            <p>Không có dữ liệu</p>
+        }
+    </div>
+</div>
+
+<style>
+    .statistics-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .stat-item {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .stat-item h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+    .table {
+        width: 100%;
+        margin-top: 10px;
+        border-collapse: collapse;
+    }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-striped tbody tr:nth-of-type(even) {
+        background-color: #fff;
+    }
+</style>

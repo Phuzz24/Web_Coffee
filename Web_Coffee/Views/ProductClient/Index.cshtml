@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Web_Coffee.Models.SanPham>
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<title>Trang Sản phẩm</title>
+<link href="~/Content/product.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/product.js"></script>
+
+<div class="container">
+    <h1>Danh sách Sản phẩm</h1>
+
+    <input type="text" id="searchBox" placeholder="Tìm kiếm sản phẩm..." onkeyup="filterProducts()">
+
+    <select id="categoryFilter" onchange="filterProducts()">
+        <option value="">Tất cả loại</option>
+        @foreach (var category in ViewBag.Categories)
+        {
+            <option value="@category.IDCategory">@category.TenLoai</option>
+        }
+    </select>
+
+    <select id="priceFilter" onchange="filterProducts()">
+        <option value="">Tất cả giá</option>
+        <option value="0-100000">Dưới 100,000 VND</option>
+        <option value="100000-500000">100,000 - 500,000 VND</option>
+        <option value="500000-1000000">500,000 - 1,000,000 VND</option>
+        <option value="1000000">Trên 1,000,000 VND</option>
+    </select>
+
+    <div id="productList">
+        @foreach (var item in Model)
+        {
+            <div class="product-card" data-category="@item.IDCategory" data-price="@item.Gia">
+                <img src="@Url.Content(item.HinhAnh)" class="card-img-top" alt="@item.TenSanPham">
+                <h3>@item.TenSanPham</h3>
+                <p>Giá: @item.Gia VND</p>
+                <p>Kích cỡ: @item.Size</p>
+                <a href="/ShoppingCart/AddtoCart/@item.IDSanPham" class="btn btn-outline-secondary btn-sm w-100">Thêm vào giỏ</a>
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "DanhGiaThanhCong";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 600px;
+        margin: 100px auto;
+        padding: 20px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        color: #4a2c2a;
+        margin-bottom: 20px;
+    }
+
+    .thank-you-message {
+        color: #4a2c2a;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .back-home-btn {
+        display: inline-block;
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+        .back-home-btn:hover {
+            background-color: #218838;
+        }
+</style>
+
+<div class="content">
+    <h1>Đánh giá thành công</h1>
+    <p class="thank-you-message">Đánh giá của bạn đã được chúng tôi ghi nhận lại. Xin chân thành cám ơn bạn!</p>
+    <a class="back-home-btn" href="@Url.Action("Index", "Home")">Trở về trang chủ</a>
+</div>

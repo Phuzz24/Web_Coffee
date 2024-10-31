@@ -1,0 +1,36 @@
+﻿@model Web_Coffee.Models.HoaDon
+@{
+    ViewBag.Title = "Chỉnh Sửa Đơn Hàng";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+
+}
+
+<h2>Chỉnh Sửa Đơn Hàng</h2>
+
+@using (Html.BeginForm("Edit", "Order", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.IDHoaDon)
+
+    <div class="form-group">
+        <label for="CodeKhachHang">Mã Khách Hàng</label>
+        @Html.TextBoxFor(model => model.CodeKhachHang, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label for="TenKhachHang">Tên Khách Hàng</label>
+        @Html.TextBoxFor(model => model.TenKhachHang, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label for="TongTien">Tổng Tiền</label>
+        @Html.TextBoxFor(model => model.TongTien, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label for="TrangThai">Trạng Thái</label>
+        @Html.TextBoxFor(model => model.TrangThai, new { @class = "form-control", required = "required" })
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu Thay Đổi</button>
+    <a href="@Url.Action("DSOrder", "Order")" class="btn btn-secondary">Hủy</a>
+}

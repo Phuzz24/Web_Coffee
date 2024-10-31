@@ -1,0 +1,75 @@
+﻿@model Web_Coffee.Models.NhanVien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Share/_StaffLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NhanVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNhanVien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNhanVien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTenNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTenNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoleNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoleNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GmaiNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GmaiNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SdtNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SdtNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNguoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNguoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDNhanVien }) |
+    @Html.ActionLink("Quay về", "DSNhanVien")
+</p>

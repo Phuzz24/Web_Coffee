@@ -1,0 +1,72 @@
+﻿@model Web_Coffee.Models.NguoiDung
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Đăng ký tài khoản</h2>
+                    @using (Html.BeginForm("AuthenRegister", "Login", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+                    {
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.UserName, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Nhập tên đăng nhập" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Pass, new { @class = "form-label" })
+                            @Html.PasswordFor(m => m.Pass, new { @class = "form-control", placeholder = "Nhập mật khẩu" })
+                            @Html.ValidationMessageFor(m => m.Pass, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.RePass, new { @class = "form-label" })
+                            @Html.PasswordFor(m => m.RePass, new { @class = "form-control", placeholder = "Nhập lại mật khẩu" })
+                            @Html.ValidationMessageFor(m => m.RePass, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Role, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control", placeholder = "Nhập vai trò" })
+
+                            @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Đăng ký</button>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <p>Đã có tài khoản? <a href="/Login/Login" class="fw-bold">Đăng nhập ngay</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .card {
+        border-radius: 1rem;
+    }
+
+    .card-title {
+        color: #333;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+</style>

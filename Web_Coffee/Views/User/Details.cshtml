@@ -1,0 +1,53 @@
+﻿@model Web_Coffee.Models.NguoiDung
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NguoiDung</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+           @Html.DisplayNameFor(model=>model.IDNguoiDung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDNguoiDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDNguoiDung }) |
+    @Html.ActionLink("Back to List", "DSNguoiDUng")
+</p>

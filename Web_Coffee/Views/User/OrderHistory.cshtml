@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "OrderHistory";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+@model IEnumerable<Web_Coffee.Models.HoaDon>
+
+@{
+    ViewBag.Title = "Lịch Sử Đơn Hàng";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Lịch Sử Đơn Hàng</h2>
+
+    @if (Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Mã Đơn Hàng</th>
+                    <th>Ngày Bán</th>
+                    <th>Tổng Tiền</th>
+                    <th>Trạng Thái</th>
+                    <th>Chi Tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+                {
+                    <tr>
+                        <td>@order.IDHoaDon</td>
+                        <td>@order.NgayBan.ToString("dd/MM/yyyy")</td>
+                        <td>@string.Format("{0:N0} đ", order.TongTien)</td>
+                        <td>@order.TrangThai</td>
+                        <td>
+                            <a href="@Url.Action("OrderDetails", "User", new { id = order.IDHoaDon })" class="btn btn-primary btn-sm">Xem Chi Tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Bạn chưa có đơn hàng nào.</p>
+    }
+</div>
+

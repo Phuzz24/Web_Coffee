@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "KhuyenMai";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<main>
+    <div class="bg-cafe">
+        <img src="~/Image/bg-cafe.png" />
+    </div>
+
+    <div class="container my-5">
+        <div id="news">
+            <h1>Khuyến mãi</h1>
+            @* list-1 *@
+            <div class="list-news">
+                <div class="row">
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-1.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-2.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-3.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+                </div>
+            </div>
+            @* list-2 *@
+            <div class="list-news">
+                <div class="row">
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-4.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-5.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+
+                    <div class="col news-item">
+                        <a href="#">
+                            <img src="~/Image/content-6.png" />
+                            <p>SALE sản phẩm mới</p>
+                        </a>
+                        <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div id="more-hidden" class="more-hidden">
+                @* list-3 *@
+                <div class="list-news">
+                    <div class="row">
+                        <div class="col news-item">
+                            <a href="#">
+                                <img src="~/Image/content-7.png" />
+                                <p>SALE sản phẩm mới</p>
+                            </a>
+                            <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                        </div>
+
+                        <div class="col news-item">
+                            <a href="#">
+                                <img src="~/Image/content-8.png" />
+                                <p>SALE sản phẩm mới</p>
+                            </a>
+                            <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                        </div>
+
+                        <div class="col news-item">
+                            <a href="#">
+                                <img src="~/Image/content-9.png" />
+                                <p>SALE sản phẩm mới</p>
+                            </a>
+                            <h3><i class="fa-regular fa-calendar text-danger "></i> 20/6/2024, 09:00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="OnChangeBtnMore()" class="btn-more">Xem thêm</button>
+
+    <script>
+        function OnChangeBtnMore() {
+            const hiddenElements = document.getElementById('more-hidden');
+            hiddenElements.classList.toggle('more-hidden');
+        }
+    </script>
+</main>
+

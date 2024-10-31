@@ -1,0 +1,81 @@
+﻿@model Web_Coffee.Models.KhachHang
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+
+<h2>Xóa khách hàng</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>KhachHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTenKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GmailKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GmailKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDTKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNguoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNguoiDung)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Quay về", "DSKhachHang",null, new { @class = "btn btn-dark" })
+        </div>
+    }
+</div>

@@ -1,0 +1,20 @@
+﻿@model Web_Coffee.Models.SanPham
+@{
+    ViewBag.Title = "Xóa Sản phẩm";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+<h2>Xóa Sản phẩm</h2>
+<h4>Bạn có chắc chắn muốn xóa sản phẩm này?</h4>
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(model => model.CodeSanPham)</dt>
+    <dd>@Html.DisplayFor(model => model.CodeSanPham)</dd>
+
+    <dt>@Html.DisplayNameFor(model => model.TenSanPham)</dt>
+    <dd>@Html.DisplayFor(model => model.TenSanPham)</dd>
+</dl>
+@using (Html.BeginForm("Delete", "Product", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    @Html.ActionLink("Quay về", "DSSanPham", null, new { @class = "btn btn-secondary" })
+}

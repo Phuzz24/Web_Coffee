@@ -1,0 +1,83 @@
+﻿@model Web_Coffee.Models.Cart
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Giỏ Hàng của Bạn</h2>
+
+    @if (Model != null && Model.Items.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Tổng tiền</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="@Url.Content(item._shopping_product.HinhAnh)" alt="@item._shopping_product.TenSanPham" class="img-thumbnail mr-3" style="width:50px;height:50px" />
+                                    <span>@item._shopping_product.TenSanPham</span>
+                                </div>
+                            </td>
+                            <td>@string.Format("{0:N0}", item._shopping_product.Gia) đ</td>
+                            <td>
+                                @using (Html.BeginForm("Update_Quantity_Cart", "ShoppingCart", FormMethod.Post, new { @class = "form-inline" }))
+                                {
+                                    <input type="hidden" value="@item._shopping_product.IDSanPham" name="ID_Product" />
+                                    <div class="form-group">
+                                        <input type="number" value="@item._shopping_quantity" name="Quantity" class="form-control form-control-sm mr-2" min="1" style="width: 60px;" />
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm">Cập nhật</button>
+                                    </div>
+                                }
+                            </td>
+                            <td>@string.Format("{0:N0}", item._shopping_product.Gia * item._shopping_quantity) đ</td>
+                            <td>
+                                <a href="@Url.Action("RemoveCart", "ShoppingCart", new { ID_Product = item._shopping_product.IDSanPham })" class="btn btn-danger btn-sm">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-right"><strong>Tổng cộng:</strong></td>
+                        <td><strong>@string.Format("{0:N0}", Model.Total_Money()) đ</strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+        <!-- Form thanh toán -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <a href="@Url.Action("Index", "ProductClient")" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left"></i> Tiếp tục mua hàng
+                </a>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("OrderInformation", "ShoppingCart")" class="btn btn-success">
+                    Tiếp tục thanh toán
+                </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Giỏ hàng của bạn đang trống. Hãy <a href="@Url.Action("Index", "ProductClient")">tiếp tục mua sắm</a>!
+        </div>
+    }
+</div>

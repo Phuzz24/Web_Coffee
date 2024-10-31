@@ -1,0 +1,23 @@
+﻿@model Web_Coffee.Models.HoaDon
+@{
+    ViewBag.Title = "Xóa Đơn Hàng";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+
+}
+
+<h2>Xóa Đơn Hàng #@Model.IDHoaDon</h2>
+<p>Bạn có chắc chắn muốn xóa đơn hàng này không?</p>
+
+<div>
+    <p><strong>Mã Khách Hàng:</strong> @Model.CodeKhachHang</p>
+    <p><strong>Tên Khách Hàng:</strong> @Model.TenKhachHang</p>
+    <p><strong>Tổng Tiền:</strong> @string.Format("{0:N0} đ", Model.TongTien)</p>
+    <p><strong>Trạng Thái:</strong> @Model.TrangThai</p>
+</div>
+
+@using (Html.BeginForm("Delete", "Order", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.IDHoaDon)
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="@Url.Action("DSOrder", "Order")" class="btn btn-secondary">Hủy</a>
+}

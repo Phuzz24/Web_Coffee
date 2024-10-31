@@ -1,0 +1,32 @@
+﻿@model Web_Coffee.Models.HoaDon
+
+@{
+    ViewBag.Title = "Đặt Hàng Thành Công";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card border-success">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="fas fa-check-circle mr-2"></i>Đặt Hàng Thành Công</h4>
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cảm ơn bạn đã đặt hàng!</h5>
+                    <p class="card-text">Đơn hàng của bạn đang được chúng tôi xử lý. Chúng tôi sẽ giao hàng cho bạn trong vòng 15-30 phút.</p>
+                    <hr>
+                    <p class="text-muted">Mã đơn hàng của bạn: <strong>#@Model.IDHoaDon</strong></p>
+                    <p class="text-muted">Ngày đặt hàng: <strong>@Model.NgayBan.ToString("dd/MM/yyyy")</strong></p>
+                    <p class="text-muted">Tổng tiền: <strong>@String.Format("{0:N0} đ", Model.TongTien)</strong></p>
+                    <a href="@Url.Action("Index", "ProductClient")" class="btn btn-primary mt-3">
+                        <i class="fas fa-shopping-cart mr-2"></i>Tiếp tục mua sắm
+                    </a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted" style="text-align:center">Nếu bạn gặp vấn đề gì, xin hãy liên hệ với quản trị viên của chúng tôi.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

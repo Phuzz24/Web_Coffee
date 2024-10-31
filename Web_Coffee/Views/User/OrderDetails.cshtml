@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Views/Share/_HomeLayout.cshtml";
+}
+
+@model IEnumerable<Web_Coffee.Models.ChiTietHoaDon>
+
+@{
+    ViewBag.Title = "Chi Tiết Đơn Hàng";
+    var order = ViewBag.Order as Web_Coffee.Models.HoaDon;
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Chi Tiết Đơn Hàng #@order.IDHoaDon</h2>
+    <p>Ngày Bán: @order.NgayBan.ToString("dd/MM/yyyy")</p>
+    <p>Tổng Tiền: @string.Format("{0:N0} đ", order.TongTien)</p>
+    <p>Trạng Thái: @order.TrangThai</p>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Sản Phẩm</th>
+                <th>Giá</th>
+                <th>Số Lượng</th>
+                <th>Tổng Cộng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model)
+            {
+                <tr>
+                    <td>@detail.CodeSanPham</td>
+                    <td>@string.Format("{0:N0} đ", detail.Gia)</td>
+                    <td>@detail.SoLuong</td>
+                    <td>@string.Format("{0:N0} đ", detail.Gia * detail.SoLuong)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("OrderHistory", "User")" class="btn btn-secondary mt-3">Quay Lại</a>
+</div>
+

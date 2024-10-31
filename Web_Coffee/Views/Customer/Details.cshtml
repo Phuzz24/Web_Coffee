@@ -1,0 +1,75 @@
+﻿@model Web_Coffee.Models.KhachHang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Share/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KhachHang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeKhachHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeKhachHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoTenKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoTenKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChiKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChiKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GmailKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GmailKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDTKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDTKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNguoiDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNguoiDung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDKhachHang }) |
+    @Html.ActionLink("Quay về", "DSKhachHang")
+</p>
